@@ -1,0 +1,49 @@
+<div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="messageClose">
+  <div>Task created Succefully!</div>
+  <button type="button" class="btn-close" (click)="closeMessage()" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<div class="list-wrapper">
+  <div class="add-new-task">
+    <button class="btn btn-primary" (click)="addNewTask()">Add New Task</button>
+  </div>
+
+  <h2>Task List</h2>
+  <div class="container">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Task No</th>
+          <th scope="col">Title</th>
+          <th scope="col">Task Description</th>
+          <th scope="col">Assgined To</th>
+          <th scope="col">Status</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks; index as i">
+          <td class="task-no">{{i+1}}</td>
+          <td>{{task?.title}}</td>
+          <td>{{task?.taskDescription}}</td>
+          <td>{{task?.assginedTo}}</td>
+          <td>
+            <button class="btn btn-success" *ngIf="task.completed">
+              Completed
+            </button>
+            <button class="btn btn-warning" *ngIf="!task.completed">
+              In-complete
+            </button>
+          </td>
+
+          <td>
+            <button class="btn btn-primary" (click)="editTasks(task)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteTask(task._id)">Delete</button>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+</div>

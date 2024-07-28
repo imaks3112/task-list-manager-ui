@@ -1,0 +1,37 @@
+.list-wrapper {
+    .add-new-task {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .container {
+        th,
+        td {
+            padding: 1rem 0;
+            vertical-align: middle;
+        }
+
+        .task-no {
+            padding: 0 15px;
+        }
+
+        thead,
+        tbody tr {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+        }
+        thead {
+            width: calc(100% - 1em);
+        }
+
+        tbody {
+            display: block;
+            height: 78vh;
+            overflow: auto;
+            .btn + .btn {
+                margin-left: 1rem;
+            }
+        }
+    }
+}
